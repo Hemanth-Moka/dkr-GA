@@ -1,6 +1,0 @@
-com\klef\dev\controller\PatientController.class
-com\klef\dev\entity\Patients.class
-com\klef\dev\service\PatientServiceImpl.class
-com\klef\dev\BackendPatientApplication.class
-com\klef\dev\repository\PatientRepository.class
-com\klef\dev\service\PatientService.class
