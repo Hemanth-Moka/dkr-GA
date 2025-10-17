@@ -13,7 +13,7 @@ services:
       - springboot-mysql-net
 
   backend:
-    image: Hemanthmoka79/gitaction-b:latest
+    image: hemanthmoka79/gitaction-b:latest
     container_name: springboot
     ports:
       - "8585:1010"
@@ -24,7 +24,7 @@ services:
       - springboot-mysql-net
 
   frontend:
-    image: Hemanthmoka79/gitaction-f:latest
+    image: hemanthmoka79/gitaction-f:latest
     container_name: react
     ports:
       - "3000:80"
