@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-base :'/jenkinsfrontendapi/'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/jenkinsfrontendapi/', 
   plugins: [react()],
 })
