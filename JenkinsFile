@@ -1,0 +1,63 @@
+pipeline {
+    agent any
+
+    stages {
+
+        // ===== FRONTEND BUILD =====
+        stage('Build Frontend') {
+            steps {
+                dir('FRONTEND-PATIENT') {
+                    bat 'npm install'
+                    bat 'npm run build'
+                }
+            }
+        }
+
+        // ===== FRONTEND DEPLOY =====
+        stage('Deploy Frontend to Tomcat') {
+            steps {
+                bat '''
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jenkinsfrontendapi" (
+                    rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jenkinsfrontendapi"
+                )
+                mkdir "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jenkinsfrontendapi"
+                xcopy /E /I /Y FRONTEND-PATIENT\\dist\\* "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jenkinsfrontendapi"
+                '''
+            }
+        }
+
+        // ===== BACKEND BUILD =====
+        stage('Build Backend') {
+            steps {
+                dir('BACKEND-PATIENT') {
+                    bat 'mvn clean package'
+                }
+            }
+        }
+
+        // ===== BACKEND DEPLOY =====
+        stage('Deploy Backend to Tomcat') {
+            steps {
+                bat '''
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\BACKEND-PATIENT_FN.war" (
+                    del /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\BACKEND-PATIENT_FN.war"
+                )
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jenkinsbackendapi" (
+                    rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jenkinsbackendapi"
+                )
+                copy "BACKEND-PATIENT\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\"
+                '''
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo 'Deployment Successful!'
+        }
+        failure {
+            echo 'Pipeline Failed.'
+        }
+    }
+}

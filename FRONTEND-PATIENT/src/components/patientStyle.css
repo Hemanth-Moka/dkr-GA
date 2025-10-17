@@ -1,0 +1,179 @@
+/* --- Container --- */
+.patient-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* --- Headings --- */
+h2, h3, h4 {
+  text-align: center;
+  margin-bottom: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
+/* --- Message Banner --- */
+.message-banner {
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  font-weight: 500;
+}
+
+.message-banner.success {
+  border-color: #4CAF50;
+  color: #2E7D32;
+}
+
+.message-banner.error {
+  border-color: #f44336;
+  color: #B71C1C;
+}
+
+/* --- Form Grid --- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  width: 100%;                /* Full width of grid cell */
+  padding: 10px;
+  border: 1px solid #999;
+  font-size: 14px;
+  box-sizing: border-box;     /* Ensures padding doesn't break layout */
+  border-radius: 0;
+  outline: none;
+}
+
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus {
+  border-color: #00eeff;
+}
+
+/* --- Buttons --- */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 6px 14px;
+  border: 1px solid #000;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 0;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #f2f2f2;
+}
+
+/* Colored Button Variants */
+.btn-blue {
+  border-color: #007BFF;
+  color: #007BFF;
+}
+
+.btn-green {
+  border-color: #2E7D32;
+  color: #2E7D32;
+}
+
+.btn-red {
+  border-color: #C62828;
+  color: #C62828;
+}
+
+.btn-gray {
+  border-color: #555;
+  color: #555;
+}
+
+/* --- Fetch Section --- */
+input[type="number"] {
+  padding: 6px;
+  border: 1px solid #999;
+  font-size: 14px;
+  width: 180px;
+  border-radius: 0;
+  margin-right: 8px;
+}
+
+pre {
+  background: #f7f7f7;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow-x: auto;
+  font-size: 13px;
+}
+
+/* --- Table --- */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #999;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #999;
+  text-align: left;
+  padding: 8px;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f7f7f7;
+  font-weight: 600;
+}
+
+tr:hover {
+  background: #fafafa;
+}
+
+/* --- Action Buttons inside table --- */
+.action-buttons {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.action-buttons button {
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
