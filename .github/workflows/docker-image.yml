@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./BACKEND-PATIENT
-          file: ./BACKEND-PATIENT/b.Dockerfile
+          file: ./BACKEND-PATIENT/b.dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/gitaction-b:latest
 
@@ -35,6 +35,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./FRONTEND-PATIENT
-          file: ./FRONTEND-PATIENT/f.Dockerfile
+          file: ./FRONTEND-PATIENT/f.dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/gitaction-f:latest
